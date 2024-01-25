@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+ import React, { useState } from "react";
+import ReactDOM from "react-dom";
+import "./App.css";
+ 
+ 
 
 function App() {
+ 
+  // State to store count value
+  const [count, setCount] = useState(0);
+
+  // Function to increment count by 1
+  const incrementCount = () => {
+    // Update state with incremented value
+    setCount(count + 1);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+     
+      <button className="increment" onClick={incrementCount} >Click Here</button> 
+      {count}
     </div>
   );
+   
+      
 }
 
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
 export default App;
